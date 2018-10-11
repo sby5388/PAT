@@ -1,0 +1,7 @@
+int i, Num;	int Sum = 0;	while (L != NULL)	{		Num = 1;		for (i = 1; i <= L->Data; i++)		{			Num = Num*i;		}		Sum = Sum + Num;		L = L->Next;	}	return Sum;
+
+---------------------
+作者：liuxuquan_ 
+来源：CSDN 
+原文：https://blog.csdn.net/qq_26570353/article/details/51042919?utm_source=copy 
+版权声明：本文为博主原创文章，转载请附上博文链接！
