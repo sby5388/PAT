@@ -32,8 +32,44 @@
 5: 954 - 459 = 495
 */
 #include<stdio.h>
-int main(){
+#define answer 495
+int getValue(int number,int position);
+int main() {
+	int number;
 
+	scanf("%d",&number);
+	int position =1;
+	while((answer-number)!=0 ) {
+		number = getValue(number,position);
+		position ++;
+	}
 	return 0;
+}
+
+int getValue(int number,int position) {
+
+	//todo 如果三位数的3个数字全相同，一次转换后即为0。
+	int result  = 0;
+	int max,mid,min;
+	int temp;
+	max = mid = min = number%10;
+	while(number>0) {
+		temp = number%10;
+		if(temp>max) {
+			max = temp;
+		} else	if(temp<min) {
+			min = temp;
+		} else {
+			mid = temp;
+		}
+		number = number/10;
+	}
+
+	int maxValue = 100*max +10*mid +min;
+	int minValue = 100*min+10*mid +max;
+	result  = maxValue - minValue;
+	printf("%d: %d - %d = %d\n",position,maxValue,minValue,result);
+
+	return result;
 }
 

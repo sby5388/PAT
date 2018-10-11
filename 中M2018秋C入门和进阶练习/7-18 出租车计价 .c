@@ -37,9 +37,9 @@ int main() {
 
 int getPrice(double length,int time) {
 
-if(length<=0){
-	return 0;
-}
+	if(length<=0) {
+		return 0;
+	}
 	if(length<=3) {
 		return 10;
 	}
@@ -54,7 +54,7 @@ if(length<=0){
 		time=time-5;
 	}
 	int result = (int)sum;
-	if((sum-result)>=0.5){
+	if((sum-result)>=0.5) {
 		result++;
 	}
 	return result;
