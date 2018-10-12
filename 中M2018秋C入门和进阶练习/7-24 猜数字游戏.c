@@ -30,17 +30,6 @@ Too small
 Good Guess!
 */
 
-
-
-
-
-
-
-
-
-
-
-
 #include<stdio.h>
 #define BIG "Too big"
 #define s "Too samll"
@@ -55,8 +44,8 @@ int main() {
 	int answer,N;
 	scanf("%d %d",&answer,&N);
 	int count[N];
-	for(int i=0;i<N;i++){
-			scanf("%d",&count[i]);
+	for(int i=0; i<N; i++) {
+		scanf("%d",&count[i]);
 	}
 	int result=0;
 	int number = 0;
@@ -76,23 +65,23 @@ int guess(const int answer,const int i,const int number,int N) {
 
 	if(answer==number) {
 		if(i==0) {
-			printf("%s",BINGO);
+			printf("%s\n",BINGO);
 		} else if(i<3) {
-			printf("%s",LUCKY);
+			printf("%s\n",LUCKY);
 		} else {
-			printf("%s",Guess);
+			printf("%s\n",Guess);
 		}
 		return 1;
 	}
 	if(i==N-1) {
-		printf("%s",OVER);
+		printf("%s\n",OVER);
 		return 1;
 	}
 
 	if(number>answer) {
-		printf("%s",BIG);
+		printf("%s\n",BIG);
 	} else {
-		printf("%s",s);
+		printf("%s\n",s);
 	}
 	return 0;
 }
