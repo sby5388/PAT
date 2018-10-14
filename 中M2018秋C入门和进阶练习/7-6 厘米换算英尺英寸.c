@@ -24,8 +24,9 @@ int main() {
 }
 void start(double m) {
 	double inchs = m/0.3048;
-	int foot = (int)inchs/12;
-	int inch = ((int)inchs % 12);
+//	printf("%.2lf\n",inchs); 
+	int foot = (int)inchs;
+	int inch = (int)((inchs-foot)*12);
 	printf("%d %d",foot,inch);
 }
 

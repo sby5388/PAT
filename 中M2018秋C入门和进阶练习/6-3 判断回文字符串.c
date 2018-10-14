@@ -6,7 +6,17 @@
 bool palindrome( char *s );
 函数palindrome判断输入字符串char *s是否为回文。
 若是则返回true，否则返回false。
-*/ 
+输入样例1：
+thisistrueurtsisiht
+输出样例1：
+Yes
+thisistrueurtsisiht
+输入样例2：
+thisisnottrue
+输出样例2：
+No
+thisisnottrue
+*/
 #include <stdio.h>
 #include <string.h>
 
@@ -15,22 +25,32 @@ typedef enum {false, true} bool;
 
 bool palindrome( char *s );
 
-int main()
-{
-    char s[MAXN];
+int main() {
+	char s[MAXN];
 
-    scanf("%s", s);
-    if ( palindrome(s)==true )
-        printf("Yes\n");
-    else
-        printf("No\n");
-    printf("%s\n", s);
+	scanf("%s", s);
+	if ( palindrome(s)==true )
+		printf("Yes\n");
+	else
+		printf("No\n");
+	printf("%s\n", s);
 
-    return 0;
+	return 0;
 }
 
 /* 你的代码将被嵌在这里 */
-bool palindrome( char *s ){
-	int number =0;
+bool palindrome( char *s ) {
+	int size = strlen(s);
+	for(int i=0; i<(size/2); i++) {
+		char start = s[i];
+		char end = s[size-i];
+		printf("%c %c\n",start,end);
+		if(start!=end) {
+			return false;
+		}
+	}
+
+
+	return true;
 
 }
