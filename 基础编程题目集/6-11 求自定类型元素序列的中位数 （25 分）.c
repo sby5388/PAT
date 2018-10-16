@@ -13,6 +13,22 @@ ElementType Median( ElementType A[], int N );
 输出样例：
 12.30
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
 
 #define MAXN 10
@@ -35,7 +51,21 @@ int main () {
 
 /* 你的代码将被嵌在这里 */
 ElementType Median( ElementType A[], int N ) {
-	//TODO 如何对C 的数组进行排序
+	ElementType B[N];
+	ElementType min = 0;
+	int middle = N/2+1;
+	for(int i=0; i<N; i++) {
+		min = A[0];
+		for(int j = i; j<N; j++) {
+			if(A[j]<=min) {
+				min =A[j];
+			}
+		}
+		B[i] = min;
+		A[i]
+	}
+	
+	return B[middle];
 }
 
 
