@@ -43,14 +43,10 @@ bool palindrome( char *s ) {
 	int size = strlen(s);
 	for(int i=0; i<(size/2); i++) {
 		char start = s[i];
-		char end = s[size-i];
-		printf("%c %c\n",start,end);
+		char end = s[size-1-i];
 		if(start!=end) {
 			return false;
 		}
 	}
-
-
 	return true;
-
 }

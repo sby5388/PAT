@@ -8,7 +8,7 @@ package com.by5388.jni;
  */
 public class HelloJni {
     static {
-        System.loadLibrary("HelloJNI");
+        System.loadLibrary("jniHelloWorld");
     }
 
     public native void sayHello();
