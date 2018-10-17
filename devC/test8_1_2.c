@@ -7,26 +7,23 @@ int main()
 	int count = 0;
 	scanf("%c",&c);
 	
-	while(c != '.')
-	{
+	while(c != '.'){
 		if(c == ' '){
-			if(count != 0){
-				if(firstflag==1)
-				{
+			if(count != 0  ){
+				if(firstflag==1){
 					printf("%d",count);
 					firstflag=0;
-				}
-				else
+				}else{
 					printf(" %d",count);
+					}
 				count = 0;
 			}
-		}
-		else
+		}else{
 			count++;
+			}
 		scanf("%c",&c);
 	}
-	if(count!= 0)
-	{
+	if(count!= 0){
 		if(firstflag==1)         //¿Õ¸ñ.
 			printf("%d",count);
 		else
