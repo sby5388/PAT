@@ -14,21 +14,6 @@ ElementType Median( ElementType A[], int N );
 12.30
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #include <stdio.h>
 
 #define MAXN 10
@@ -60,11 +45,12 @@ ElementType Median( ElementType A[], int N ) {
 			if(A[j]<=min) {
 				min =A[j];
 			}
+			//需要记录最小项的下标
 		}
 		B[i] = min;
-		A[i]
+		A[i] = A[0];
 	}
-	
+
 	return B[middle];
 }
 
