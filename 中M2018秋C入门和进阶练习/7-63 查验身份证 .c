@@ -33,37 +33,43 @@ M£º1 0 X 9 8 7 6 5 4 3 2
 Êä³öÑùÀý2£º
 All passed
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #include<stdio.h>
 #define MAX 19
 int main() {
+	int weight[]= {7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2};
+	char M[]= {'1', '0', 'X', '9', '8','7','6','5','4','3','2'};
 	int N;
 	scanf("%d",&N);
 	char *ids[N][MAX];
 	for(int i =0; i<N; i++) {
-//		gets(ids[i]);
 		scanf("%s",ids[i]);
 	}
+	int empty = 1;
+	int sum = 0;
 	for(int i=0; i<N; i++) {
-		printf("%s\n",ids[i]);
-		
-		
+		sum = 0;
+		char *temp = ids[i];
+		int normal = 1;
+		for(int j=0; j<17; j++) {
+			char t = temp[j];
+			if(t < 48 || t>57) {
+				normal = 0;
+				printf("%s\n",temp);
+				break;
+			}
+			sum+=(temp[j]-48)*weight[j];
+		}
+		if(normal) {
+			int result = sum%11;
+			char show = M[result];
+			if(show!=temp[17]) {
+				empty = 0;
+				printf("%s\n",temp);
+			}
+		}
+	}
+	if(empty) {
+		printf("All passed");
 	}
 	return 0;
 }
