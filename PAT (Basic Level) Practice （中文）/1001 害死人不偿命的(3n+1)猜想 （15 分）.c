@@ -23,9 +23,26 @@
 5
 */
 #include<stdio.h>
+int getCount(int value);
 int main() {
 	int n;
 	scanf("%d",&n);
+	int max = 0;
+	int maxid= 0; 
+	int count= getCount(n);
+	printf("%d\n",count);
+//	for(int i=1;i<101;i++){
+//		count =getCount(i);
+//		if(count>max){
+//			max = count;
+//			maxid = i;
+//		}
+//	}
+//	printf("id = %d ,maxCount = %d ",maxid,max);
+	return 0;
+
+}
+int getCount(int n){
 	int count=0;
 	if(n<=1000) {
 		while(n>1) {
@@ -38,9 +55,6 @@ int main() {
 			}
 		}
 	}
-	printf("%d\n",count);
-
-	return 0;
-
+	return count;
 }
 
