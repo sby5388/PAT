@@ -1,4 +1,4 @@
-#include <stdio.h>
+
 /*
 水仙花数是指一个N位正整数（N≥3），它的每个位上的数字的N次幂之和等于它本身。例如：
 153 = 1*1*1 +5*5*5 +3*3*3
@@ -11,7 +11,7 @@ void PrintN( int m, int n );
 函数narcissistic判断number是否为水仙花数，是则返回1，否则返回0。
 函数PrintN则打印开区间(m, n)内所有的水仙花数，每个数字占一行。题目保证100≤m≤n≤10000。
 */
-
+#include <stdio.h>
 int narcissistic( int number );
 void PrintN( int m, int n );
 
@@ -64,7 +64,7 @@ int narcissistic( int number ) {
 }
 void PrintN( int m, int n ) {
 	for(int i=m+1; i<n; i++) {
-		if(narcissistic(i)==1) {
+		if(narcissistic(i)) {
 			printf("%d ",i);
 		}
 	}
