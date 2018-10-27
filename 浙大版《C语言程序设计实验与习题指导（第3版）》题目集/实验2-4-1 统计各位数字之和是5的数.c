@@ -33,25 +33,25 @@ int is( int number ) {
 	if(number<=0) {
 		number=0-number;
 	}
-	while(number>0){
+	while(number>0) {
 		sum+=number%10;
 		number/=10;
 	}
-	if(sum==5){
+	if(sum==5) {
 		return 1;
-	}else{
+	} else {
 		return 0;
-	}	
+	}
 }
-void count_sum( int a, int b ){
+void count_sum( int a, int b ) {
 	int sum = 0 ;
 	int count = 0;
-	for(int i=a;i<=b;i++){
-		if(is(i)){
+	for(int i=a; i<=b; i++) {
+		if(is(i)) {
 			sum+=i;
 			count++;
 		}
 	}
-	
+
 	printf("count = %d, sum = %d",count,sum);
 }
