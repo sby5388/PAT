@@ -26,13 +26,6 @@ Steve 1967/11/20
 #include<stdio.h>
 #define MAX 20140906
 #define MIN 18140906
-struct person {
-	char name[10];
-	char data[20];
-	int yy;
-	int mm;
-	int dd;
-};
 int isNormal(int year);
 int main() {
 	int N;

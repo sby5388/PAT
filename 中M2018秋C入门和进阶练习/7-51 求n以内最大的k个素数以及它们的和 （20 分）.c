@@ -20,38 +20,9 @@
 11+7+5+3+2=28
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #include<stdio.h>
 #include<math.h>
-int prime( int p );
+int prime(int p);
 void showPrime(int n,int k);
 int main() {
 	int n,k;
@@ -121,31 +92,5 @@ int prime( int p ) {
 	}
 	return 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

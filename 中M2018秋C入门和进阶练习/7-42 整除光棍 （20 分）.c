@@ -23,25 +23,6 @@
 3584229390681 15
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #include<stdio.h>
 
 void start(int n);

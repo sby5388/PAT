@@ -20,10 +20,25 @@ L1-006 连续因子 （20 分）
 */
 #include<stdio.h>
 #include<math.h>
+void show(unsigned long long N);
 int main() {
 	unsigned long long N;
 
-	scanf("%lld",&N);
+	//scanf("%lld",&N);
+	//show(N);
+	int count = 1;
+	for(unsigned long long i=2;;) {
+		printf("----count = %d ---\n",count);
+		show(i);
+		i*=2;
+		count++;
+		printf("\n");
+	}
+
+
+	return 0;
+}
+void show(unsigned long long N) {
 	unsigned long long M = N;
 	int count =0;
 	int min = 1;
@@ -42,13 +57,11 @@ int main() {
 			count = temp;
 			min =i;
 		}
-
 	}
 	printf("%d\n",count);
 	printf("%d",min);
 	for(int i =1; i<count; i++) {
 		printf("*%d",min+i);
 	}
-	return 0;
 }
 
