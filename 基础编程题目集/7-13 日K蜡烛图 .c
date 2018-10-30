@@ -36,7 +36,7 @@ R-Hollow
 #include<string.h>
 int main() {
 	double open,high,low,close;
-	scanf("%f %f %f %f",&open,&high,&low,&close);
+	scanf("%lf %lf %lf %lf",&open,&high,&low,&close);
 
 	char *first = "BW-Solid";
 	char *first2 = "R-Hollow";
@@ -48,15 +48,15 @@ int main() {
 		first = first3;
 	}
 
-	printf("%s ",first);
+	printf("%s",first);
 
 	int low1 =  low<open && low<close;
 	int high1 = high>open && high>close;
 
 	if(low1||high1) {
-		printf("with ");
+		printf(" with ");
 	} else {
-		printf("\n");
+	//	printf("\n");
 		return 0;
 	}
 
@@ -70,16 +70,7 @@ int main() {
 			printf("Upper Shadow");
 		}
 	}
-	printf("\n");
+	//printf("\n");
 	return 0;
 }
-/*
 
-
-1 1 1 1
-10 12 11 13
-
-
-
-
-*/

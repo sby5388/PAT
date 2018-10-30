@@ -24,18 +24,30 @@ int main() {
 	//100y+f
 	//n+200y+2f = 100f+y
 	//n = 98f-199y
-	int f =100;
+	int f =99;
 	int y = 0;
 	int result = 0;
-	for(; f>0; f--) {
-		for(y=100; y>0; y--) {
-			if(N==(98*f - 199*y)) {
-				result = 1;
+	
+	for(y=0;y<100;y++){
+		for(f=y;f<100;f++){
+			if((98*f-199*y)==N){
 				printf("%d.%d",y,f);
+				result = 1;
 				break;
 			}
 		}
-	}
+	} 
+	
+//	for(; f>0; f--) {
+//		for(y=100; y>0; y--) {
+//			if(N==(98*f - 199*y)) {
+//				
+//				printf("%d.%d",y,f);
+//				result = 1;
+//				break;
+//			}
+//		}
+//	}
 	if(!result) {
 		printf("No Solution");
 	}
