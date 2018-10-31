@@ -28,17 +28,24 @@ typedef struct Student {
 	char *id[6];
 	char *name[11];
 	int c1,c2,c3;
-}Stu;
+} Stu;
 int main() {
 	int N;
 	scanf("%d",&N);
 	Stu stus[N];
 	int maxSum = 0;
-	int maxId =0; 
+	int maxId =0;
 	for(int i=0; i<N; i++) {
 		scanf("%s %s %d %d %d",&stus[i].id,&stus[i].name,&stus[i].c1,&stus[i].c2,&stus[i].c3);
-		todo
+		Stu stu = stus[i];
+		int temp = stu.c1+stu.c2+stu.c3;
+		if(temp>maxSum) {
+			maxSum = temp;
+			maxId = i;
+		}
 	}
+	Stu stu = stus[maxId];
+	printf("%s %s %d",stu.name,stu.id,maxSum);
 	return 0;
 }
 

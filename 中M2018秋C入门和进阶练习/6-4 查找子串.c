@@ -44,8 +44,6 @@ char *search(char *s, char *t) {
 	
 	
 	
-
-	
 	return NULL;
 	
 }

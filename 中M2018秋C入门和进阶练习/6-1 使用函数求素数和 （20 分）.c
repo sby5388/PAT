@@ -8,7 +8,8 @@
 函数接口定义：
 int prime( int p );
 int PrimeSum( int m, int n );
-其中函数prime当用户传入参数p为素数时返回1，否则返回0；函数PrimeSum返回区间[m, n]内所有素数的和。题目保证用户传入的参数m≤n。
+其中函数prime当用户传入参数p为素数时返回1，否则返回0；函数PrimeSum返回区间[m, n]内所有素数的
+和。题目保证用户传入的参数m≤n。
 
 */
 int prime( int p );
@@ -60,4 +61,5 @@ int PrimeSum( int m, int n ) {
 	}
 	return sum;
 }
+
 

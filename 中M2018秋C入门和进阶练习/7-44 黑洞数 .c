@@ -33,42 +33,54 @@
 */
 #include<stdio.h>
 #define answer 495
+#define M 3
 int getValue(int number,int position);
 int main() {
 	int number;
 
 	scanf("%d",&number);
+
+
 	int position =1;
-	while((answer-number)!=0 ) {
+	while((answer-number)!=0 && number!=0 ) {
 		number = getValue(number,position);
 		position ++;
 	}
 	return 0;
 }
 
-int getValue(int number,int position) {
+int getValue(int number,int position2) {
 
 	//todo 如果三位数的3个数字全相同，一次转换后即为0。
 	int result  = 0;
-	int max,mid,min;
-	int temp;
-	max = mid = min = number%10;
+	int n[M];
+	int position = 0;
 	while(number>0) {
-		temp = number%10;
-		if(temp>max) {
-			max = temp;
-		} else	if(temp<min) {
-			min = temp;
-		} else {
-			mid = temp;
-		}
-		number = number/10;
+		n[position]=number%10;
+		number=number/10;
+		position++;
 	}
+	for(int i=0; i<M-1; i++) {
+		for(int j=i+1; j<M; j++) {
+			if(n[j]<n[i]) {
+				int temp =n[j];
+				n[j]=n[i];
+				n[i]=temp;
+			}
+		}
+	}
+	int max = n[2];
+	int mid =n[1];
+	int min =n[0];
 
 	int maxValue = 100*max +10*mid +min;
 	int minValue = 100*min+10*mid +max;
 	result  = maxValue - minValue;
-	printf("%d: %d - %d = %d\n",position,maxValue,minValue,result);
+
+	printf("%d: %d - %d = %d\n",position2,maxValue,minValue,result);
+	if(max == mid || min == mid){
+		return 0;
+	}
 
 	return result;
 }
