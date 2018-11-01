@@ -23,19 +23,16 @@ void Print_Factorial ( const int N ) {
 		return;
 	}
 
-//	printf("123\n");
 	if(N==0) {
 		printf("1");
 		return;
 	}
 
-//	printf("456\n");
 
 	if(N>1000) {
 		printf("Invalid input");
 		return;
 	}
-//	printf("789\n");
 
 	int n=N;
 	unsigned  long long result = 1;
