@@ -28,31 +28,21 @@ int main() {
 	int n;
 	scanf("%d",&n);
 	int max = 0;
-	int maxid= 0; 
+	int maxid= 0;
 	int count= getCount(n);
 	printf("%d\n",count);
-//	for(int i=1;i<101;i++){
-//		count =getCount(i);
-//		if(count>max){
-//			max = count;
-//			maxid = i;
-//		}
-//	}
-//	printf("id = %d ,maxCount = %d ",maxid,max);
 	return 0;
 
 }
-int getCount(int n){
+int getCount(int n) {
 	int count=0;
-	if(n<=1000) {
-		while(n>1) {
-			if(n%2==0) {
-				n=n/2;
-				count++;
-			} else {
-				n=(3*n+1)/2;
-				count++;
-			}
+	while(n>1) {
+		if(n%2==0) {
+			n=n/2;
+			count++;
+		} else {
+			n=(3*n+1)/2;
+			count++;
 		}
 	}
 	return count;

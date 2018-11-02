@@ -25,7 +25,7 @@
 7 6
 */
 #include<stdio.h>
-#define MAX 75
+#define MAX 100
 int main() {
 	int N;
 	scanf("%d",&N);
@@ -33,27 +33,36 @@ int main() {
 	for(int i=0; i<N; i++) {
 		scanf("%d",&input[i]);
 	}
-	//100以内的最次次数 
-	int count[MAX];
-	//同上 
 	int key[MAX];
-	int x=0;
-	int y = 0;
-	for(int i=0;i<N;i++){
-		int current = input[i];
-		int exist = 0;
-		for(int j=0;j<MAX;j++){
-			if(count[j]==temp){
-				coun
-				exist = 1;
-				break;
+	for(int i=0; i<MAX; i++) {
+		key[i] = 0;
+	}
+
+	for(int i=0; i<N; i++) {
+		int n = input[i];
+		while(key[n]<2 && n>1) {
+			if(n%2==0) {
+				n=n/2;
+			} else {
+				n = (3*n+1)/2;
+			}
+			//key[n]=key[n]+1;
+		}
+	}
+	int firstItem = 1;
+	for(int i=N-1; i>0; i--) {
+		if(key[input[i]]>1) {
+			if(firstItem) {
+				printf("%d",input[i]);
+				firstItem = 0;
+			} else {
+				printf(" %d",input[i]);
 			}
 		}
-	} 
-	
+	}
 
 
-
+	return 0;
 }
 
 

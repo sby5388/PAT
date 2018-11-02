@@ -31,7 +31,7 @@ H£¨<100£©£¬ÎªÓÅÏÈÂ¼È¡Ïß¡ª¡ªµÂ·ÖºÍ²Å·Ö¾ù²»µÍÓÚ´ËÏßµÄ±»¶¨ÒåÎª¡°²ÅµÂÈ«¾¡¡±£¬´ËÀà¿¼É
 10000013 90 99
 10000014 66 60
 Êä³öÑùÀı£º
-12 
+12
 10000013 90 99
 10000012 80 100
 10000003 85 80
@@ -44,198 +44,99 @@ H£¨<100£©£¬ÎªÓÅÏÈÂ¼È¡Ïß¡ª¡ªµÂ·ÖºÍ²Å·Ö¾ù²»µÍÓÚ´ËÏßµÄ±»¶¨ÒåÎª¡°²ÅµÂÈ«¾¡¡±£¬´ËÀà¿¼É
 10000014 66 60
 10000008 75 79
 10000001 64 90
-------------
-14 60 80
-99999901 64 90
-99999902 90 60
-99999911 85 80
-99999903 85 80
-99999904 80 85
-99999905 82 77
-99999906 83 76
-99999907 90 78
-99999908 75 79
-99999909 59 90
-99999910 88 45
-99999912 80 100
-99999913 90 99
-99999914 66 60 
 
 */
 #include<stdio.h>
 #include<string.h>
+#define Max 9
+#define A 1
+#define B 2
+#define C 3
+#define D 4
+#define E 0
+//ÔËĞĞ³¬Ê±
+typedef struct MAN {
+	int id;
+	int de;
+	int cai;
+	int all;
+	int type;
+} Man;
+int low,high;
+int showClass(int de,int cai);
+int compareMan(Man a,Man b);
 int main() {
-
 	//get inputs
-	int N,low,high;
+	int N;
 	scanf("%d %d %d",&N,&low,&high);
-	int id[N];
-	int defen[N];
-	int caifen[N];
-	int zongfen[N];
-	/*µÚÒ»Àà*/
-	int count_best = 0;
-	/*µÚ¶şÀà£¬µÂÊ¤²Å£¬*/
-	int count_better = 0;
-	/*µÚÈıÀà ²ÅµÂ¼æÍö */
-	int count_good = 0;
-	/*µÚËÄÀà ÔüÔü*/
-	int count_zhazha = 0;
-	/*Í¨¹ıÈËÊı*/
-	int count_ok = 0;
-
-
+	Man mans[N];
+	int countPass = 0;
 	for(int i=0; i<N; i++) {
-		scanf("%d %d %d", &id[i], &defen[i], &caifen[i]);
-		if(defen[i]>=low && caifen[i]>=low) {
-			if(defen[i]>=high) {
-				if(caifen[i]>=high) {
-					count_best++;
-				} else {
-					count_better++;
-				}
-			} else {
-				if(defen[i]>=caifen[i]) {
-					count_good++;
-				} else {
-					count_zhazha++;
-				}
-			}
-
-			zongfen[i] = defen[i]+caifen[i];
-			count_ok++;
-		} else {
-			zongfen[i] = defen[i]=caifen[i] = 0;
+		scanf("%d %d %d", &mans[i].id, &mans[i].de, &mans[i].cai);
+		mans[i].all = mans[i].de + mans[i].cai;
+		mans[i].type = showClass(mans[i].de,mans[i].cai);
+		if(mans[i].type!=0) {
+			countPass++;
 		}
 	}
-	//out ok_number
-	printf("%d\n",count_ok);
 
-	//out best
-	int maxID =0;
-	int maxFen = 0;
+	for(int i=0; i<N-1; i++) {
+		for(int j=i+1; j<N; j++) {
+			Man man1 =mans[i];
+			Man man2 = mans[j];
+			int result = compareMan(man1,man2);
+			if(result>0) {
+				int all =man1.all;
+				int cai = man1.cai;
+				int de = man1.de;
+				int type = man1.type;
+				int id= man1.id;
 
-	while(count_best>0) {
-		for(int i=0; i<N; i++) {
-			if(zongfen[i]!=0) {
-				if(defen[i]>=high && caifen[i]>=high) {
-					if(zongfen[i]>maxFen) {
-						maxFen = zongfen[i];
-						maxID = i;
-					} else if(zongfen[i]==maxFen) {
-						if(defen[i]>defen[maxID]) {
-							maxFen = zongfen[i];
-							maxID = i;
-						} else if(defen[i]==defen[maxID]) {
-							if(id[i]<id[maxID]) {
-								maxFen = zongfen[i];
-								maxID = i;
-							}
-						}
-					}
-				}
+				mans[i].all =man2.all;
+				mans[i].id = man2.id;
+				mans[i].de = man2.de;
+				mans[i].cai = man2.cai;
+				mans[i].type = man2.type;
+
+				mans[j].all =all;
+				mans[j].id = id;
+				mans[j].de = de;
+				mans[j].cai = cai;
+				mans[j].type = type;
 			}
 		}
-		printf("%d %d %d\n", id[maxID], defen[maxID], caifen[maxID]);
-		zongfen[maxID] = 0;
-		maxFen = 0;
-		count_best--;
 	}
 
-
-	//out better
-	maxID = 0;
-	maxFen = 0;
-
-	while(count_better>0) {
-		for(int i=0; i<N; i++) {
-			if(zongfen[i]!=0) {
-				if(defen[i]>=high) {
-					if(zongfen[i]>maxFen) {
-						maxFen = zongfen[i];
-						maxID = i;
-					} else if(zongfen[i]==maxFen) {
-						if(defen[i]>defen[maxID]) {
-							maxFen = zongfen[i];
-							maxID = i;
-						} else if(defen[i]==defen[maxID]) {
-							if(id[i]<id[maxID]) {
-								maxFen = zongfen[i];
-								maxID = i;
-							}
-						}
-					}
-				}
-			}
+	printf("%d\n",countPass);
+	for(int i=0; i<N; i++) {
+		Man man = mans[i];
+		if(man.type!=0) {
+			printf("%d %d %d\n", mans[i].id, mans[i].de, mans[i].cai);
 		}
-		printf("%d %d %d\n", id[maxID], defen[maxID], caifen[maxID]);
-		zongfen[maxID] = 0;
-		maxFen = 0;
-		count_better--;
 	}
-
-
-	//out good
-	maxID = 0;
-	maxFen = 0;
-	while(count_good>0) {
-		for(int i=0; i<N; i++) {
-			if(zongfen[i]!=0) {
-				if(defen[i]>=caifen[i]) {
-					if(zongfen[i]>maxFen) {
-						maxFen = zongfen[i];
-						maxID = i;
-					} else if(zongfen[i]==maxFen) {
-						if(defen[i]>defen[maxID]) {
-							maxFen = zongfen[i];
-							maxID = i;
-						} else if(defen[i]==defen[maxID]) {
-							if(id[i]<id[maxID]) {
-								maxFen = zongfen[i];
-								maxID = i;
-							}
-						}
-					}
-				}
-
-			}
-		}
-		printf("%d %d %d\n", id[maxID], defen[maxID], caifen[maxID]);
-		zongfen[maxID] = 0;
-		maxFen = 0;
-		count_good--;
-	}
-
-	//out zhazha
-	maxID = 0;
-	maxFen = 0;
-	while(count_zhazha>0) {
-		for(int i=0; i<N; i++) {
-			if(zongfen[i]!=0) {
-				if(zongfen[i]>maxFen) {
-					maxFen = zongfen[i];
-					maxID = i;
-				} else if(zongfen[i]==maxFen) {
-					if(defen[i]>defen[maxID]) {
-						maxFen = zongfen[i];
-						maxID = i;
-					} else if(defen[i]==defen[maxID]) {
-						if(id[i]<id[maxID]) {
-							maxFen = zongfen[i];
-							maxID = i;
-						}
-					}
-				}
-			}
-		}
-		printf("%d %d %d\n", id[maxID], defen[maxID], caifen[maxID]);
-		zongfen[maxID] = 0;
-		maxFen = 0;
-		count_zhazha--;
-	}
-
-
-
-
 	return 0;
+
+}
+int showClass(int de,int cai) {
+	if(de>=low && cai>=low) {
+		if(de>=high) {
+			return cai>=high?A:B;
+		} else {
+			return de>=cai?C:D;
+		}
+	} else {
+		return E;
+	}
+}
+int compareMan(Man a,Man b) {
+	if(a.type!=b.type) {
+		return a.type - b.type;
+	}
+	if(a.all!=b.all) {
+		return b.all-a.all;
+	}
+	if(a.de!=b.de) {
+		return b.de-a.de;
+	}
+	return a.id - b.id;
 }
