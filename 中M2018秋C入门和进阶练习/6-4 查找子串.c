@@ -16,7 +16,7 @@ bored
 -1
 */
 #include <stdio.h>
-//#include<string.h> 
+//#include<string.h>
 #define MAXS 30
 
 char *search(char *s, char *t);
@@ -27,11 +27,15 @@ int main() {
 
 	ReadString(s);
 	ReadString(t);
+	printf("%s\n",s);
+	printf("%s\n",t);
 	pos = search(s, t);
-	if ( pos != NULL )
+	if ( pos != NULL ) {
 		printf("%d\n", pos - s);
-	else
+	} else {
 		printf("-1\n");
+	}
+
 
 	return 0;
 }
@@ -40,14 +44,14 @@ int main() {
 char *search(char *s, char *t) {
 	//todo 20181015
 	int lengths = sizeof(s)/sizeof(s[0]);
-	int lengtht = sizeof(t);
+	int lengtht = sizeof(t)/sizeof(t[0]);
 	printf("%d %d\n",lengths,lengtht);
-	
-	
-	
+
+
+
 	return NULL;
-	
+
 }
-void ReadString(char *s){
+void ReadString(char *s) {
 	gets(s);
 }

@@ -48,7 +48,7 @@ int main() {
 
 /* 你的代码将被嵌在这里 */
 List Reverse( List L ) {
-	 List L2 = L->Next;
+	List L2 = L->Next;
 	int length = 0;
 	while(L2) {
 		length++;
@@ -57,7 +57,7 @@ List Reverse( List L ) {
 
 	List *L3;
 	L3 = (List *)malloc(sizeof(L));
-	for(int i=0;i<length;i++){
+	for(int i=0; i<length; i++) {
 		
 	}
 

@@ -1,6 +1,5 @@
 #include<stdio.h>
-int main()
-{
+int main(){
 	int shuzu[100]={0};
 	
 	int cishu =99; 
@@ -11,15 +10,11 @@ int main()
 		
 	} while(cishu!=0);//当次数为0时停止键入 
 	int count=0;
-	for(int i=99;i>=0;i--)
-	{
-		if(shuzu[i]!=0)
-		{
+	for(int i=99;i>=0;i--){
+		if(shuzu[i]!=0){
 		//	printf("%d\n",i);
-			if(i>1)
-			{
-				if(count==0)
-				{
+			if(i>1){
+				if(count==0){
 					printf("%dx%d",shuzu[i],i);
 					count++;
 				}else{
@@ -28,19 +23,15 @@ int main()
 				}
 			}
 			else{
-				if(i==1)
-				{
+				if(i==1){
 					printf("+%dx",shuzu[i]);
-				}
-				else{
-					
+				}else{
 				printf("+%d",shuzu[i]);
 				} 
 			}
-			
 		}
-			
+		
 	} 
 	
-	return 0;		
+	return 0;
 } 
