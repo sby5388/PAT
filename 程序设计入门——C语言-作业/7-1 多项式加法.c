@@ -40,9 +40,37 @@
 时间限制：500ms内存限制：32000kb
 */
 #include<stdio.h>
+#define MAX 101
 int main() {
-	int N;
-	scanf("%d",&N);
+	int s[MAX] = {0};
+	int n,m;
+	scanf("%d %d",&n,&m);
+	while(n!=0) {
+		s[n]=m;
+		scanf("%d %d",&n,&m);
+	}
+	s[0]=m;
+	scanf("%d %d",&n,&m);
+	while(n!=0) {
+		s[n]+=m;
+		scanf("%d %d",&n,&m);
+	}
+	s[0]+=m;
+	for(int i=MAX-1; i>=0; i--) {
+		if(s[i]!=0) {
+			if(i!=0) {
+				if(i==1) {
+						printf("%dx+",s[i]);
+				} else {
+					printf("%dx%d+",s[i],i);
+				}
+			} else {
+				printf("%d",s[i]);
+			}
+		}
+	}
+
+
 	return 0;
 }
 
