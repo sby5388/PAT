@@ -24,16 +24,16 @@ void show(unsigned long long N);
 int main() {
 	unsigned long long N;
 
-	//scanf("%lld",&N);
-	//show(N);
-	int count = 1;
-	for(unsigned long long i=2;;) {
-		printf("----count = %d ---\n",count);
-		show(i);
-		i*=2;
-		count++;
-		printf("\n");
-	}
+	scanf("%lld",&N);
+	show(N);
+//	int count = 1;
+//	for(unsigned long long i=2;;) {
+//		printf("----count = %d ---\n",count);
+//		show(N);
+//		i*=2;
+//		count++;
+//		printf("\n");
+//	}
 
 
 	return 0;
