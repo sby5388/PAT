@@ -13,7 +13,8 @@ fahr = 150, celsius = 计算所得摄氏温度的整数值
 #include<stdio.h>
 int main() {
 	int fahr = 150;
-	int celsius = 5*(fahr)/9 - 5*(32)/9;
+//	int celsius = 5*(fahr)/9 - 5*(32)/9;
+	int celsius = 5*(fahr - 32)/9;
 	printf("fahr = 150, celsius = %d",celsius);
 	return 0;
 }
