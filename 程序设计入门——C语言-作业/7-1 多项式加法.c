@@ -60,7 +60,7 @@ int main() {
 		if(s[i]!=0) {
 			if(i!=0) {
 				if(i==1) {
-						printf("%dx+",s[i]);
+					printf("%dx+",s[i]);
 				} else {
 					printf("%dx%d+",s[i],i);
 				}

@@ -14,9 +14,21 @@
 */
 #include<stdio.h>
 #include<string.h>
-int main(){
-    int N;
-    scanf("%d",&N);
+#define END =
+int main() {
+	char *chars;
+	gets(chars);
+	printf("%s\n",chars);
+	int length = strlen(chars);
+	printf("length  = %d\n",length);
+
+	int n,m;
+
+
+	for(int i=0; i<length; i++) {
+		char c=chars[i];
+		printf("%c\n",c);
+	}
 	return 0;
 }
 
