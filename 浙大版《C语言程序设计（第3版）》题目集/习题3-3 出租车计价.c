@@ -32,19 +32,15 @@ int main() {
 	scanf("%lf %d",&f,&wait);
 	double result = 10;
 	if(f>3.0) {
-		printf(">3\n");
 		result +=(f-3)*2;
 	}
-	if(f>13.0) {
-		printf(">13\n");
-		result +=(f-13)*1;
+	if(f>10.0) {
+		result +=(f-10)*1;
 	}
-	if(wait>5) {
+
+	while(wait>=5) {
 		result+=2;
-		while(wait>0) {
-			result+=2;
-			wait-=5;
-		}
+		wait-=5;
 	}
 
 	printf("%.0lf",result);

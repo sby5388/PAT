@@ -42,9 +42,18 @@ Zero Equation
 Not An Equation
 */
 #include<stdio.h>
-int main(){
-    int N;
-    scanf("%d",&N);
+int main() {
+	double a,b,c;
+	scanf("%lf %lf %lf",&a,&b,&c);
+	if (a == 0.0 && b == 0.0 ) {
+		if(c == 0.0) {
+			printf("Zero Equation");
+		} else {
+			printf("Not An Equation");
+		}
+	} else {
+		//一元二次函數的求根公式、有解判定条件 
+	}
 	return 0;
 }
 
