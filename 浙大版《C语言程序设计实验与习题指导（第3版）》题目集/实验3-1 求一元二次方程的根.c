@@ -10,7 +10,8 @@
 
 1)如果方程有两个不相等的实数根，则每行输出一个根，先大后小；
 
-2)如果方程有两个不相等复数根，则每行按照格式“实部+虚部i”输出一个根，先输出虚部为正的，后输出虚部为负的；
+2)如果方程有两个不相等复数根，则每行按照格式“实部+虚部i”输出一个根，
+先输出虚部为正的，后输出虚部为负的；
 
 3)如果方程只有一个根，则直接输出此根；
 
@@ -45,14 +46,29 @@ Not An Equation
 int main() {
 	double a,b,c;
 	scanf("%lf %lf %lf",&a,&b,&c);
-	if (a == 0.0 && b == 0.0 ) {
-		if(c == 0.0) {
-			printf("Zero Equation");
+	if (a == 0.0) {
+		if(b == 0.0 ) {
+			if(c == 0.0) {
+				printf("Zero Equation");
+			} else {
+				printf("Not An Equation");
+			}
 		} else {
-			printf("Not An Equation");
+			printf("%.2lf",(0.0-c)/b);
 		}
 	} else {
-		//一元二次函數的求根公式、有解判定条件 
+		//一元二次函數的求根公式、有解判定条件
+		double flag = b*b - 4*a*c;
+		printf("%.2lf\n",flag);
+		if(0.0 == flag) {
+			printf("%.2lf",(0.0-b)/(2*a));
+		} else if(flag>0) {
+			double x1 = (0.0-b+sqrt(flag))/(2*a);
+			double x2 = (0.0-b-sqrt(flag))/(2*a);
+			printf("%.2lf\n%.2lf",x1,x2);
+		} else {
+			//复数怎么算来着？ 
+		}
 	}
 	return 0;
 }
