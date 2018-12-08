@@ -13,17 +13,6 @@
 Êä³öÑùÀı:
 32.66
 */
-
-
-
-
-
-
-
-
-
-
-
 #include<stdio.h>
 void start(int N);
 int main() {
