@@ -41,6 +41,7 @@
 */
 #include<stdio.h>
 #define MAX 101
+#define return return
 int main() {
 	int s[MAX] = {0};
 	int n,m;

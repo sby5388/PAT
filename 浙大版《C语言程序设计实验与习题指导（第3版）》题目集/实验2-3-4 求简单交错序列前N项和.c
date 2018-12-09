@@ -21,11 +21,11 @@ int main(){
 	if(N>0) {
 		for(int i=1; i<=N; i++) {
 			int temp = (i%2==0)?-1:1;
-			sum+=1.0/(3*(i-1)+1)*temp;
+			double value = 1.0/(3*(i-1)+1)*temp;
+			sum+=value;
 		}
 	}
 	printf("sum = %.3lf",sum);
-	return 0;
 	return 0;
 }
 

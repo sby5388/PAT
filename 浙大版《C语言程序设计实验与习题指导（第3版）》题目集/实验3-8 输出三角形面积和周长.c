@@ -1,9 +1,8 @@
 /*
 实验3-8 输出三角形面积和周长 （15 分）
-本题要求编写程序，根据输入的三角形的三条边a、b、c，计算并输出面积和周长。注意：在一个三角形中， 任意两边之和大于第三边。三角形面积计算公式：area=√
-?s(s?a)(s?b)(s?c)
-?
-?? ，其中s=(a+b+c)/2。
+本题要求编写程序，根据输入的三角形的三条边a、b、c，计算并输出面积和周长。
+注意：在一个三角形中， 任意两边之和大于第三边。三角形面积计算公式：
+area=√(s*(s-a)*(s-b)*(s-c)) ，其中s=(a+b+c)/2。
 
 输入格式：
 输入为3个正整数，分别代表三角形的3条边a、b、c。
@@ -25,9 +24,21 @@ area = 7.15; perimeter = 13.00
 These sides do not correspond to a valid triangle
 */
 #include<stdio.h>
-int main(){
-    int N;
-    scanf("%d",&N);
+#include<math.h>
+int main() {
+	int a,b,c;
+	scanf("%d %d %d",&a,&b,&c);
+
+	if((a+b)<=c || (a+c)<=b ||  (b+c)<=a ) {
+		printf("These sides do not correspond to a valid triangle");
+	} else {
+		double perimeter =a+b+c;
+		double s = perimeter/2.0;
+		double area = sqrt(s*(s-a)*(s-b)*(s-c));
+		printf("area = %.2lf; perimeter = %.2lf",area,perimeter);
+
+	}
+
 	return 0;
 }
 

@@ -1,5 +1,5 @@
 /*
-练习4-3 求给定精度的简单交错序列部分和 （15 分）
+实验4-1-8 求给定精度的简单交错序列部分和 （15 分）
 本题要求编写程序，计算序列部分和 1 - 1/4 + 1/7 - 1/10 + ... 直到最后一项的绝对值不大于给定精度eps。
 
 输入格式:
@@ -26,7 +26,7 @@ int main() {
 	double number = 1;
 	int flag = 1;
 	double item = 1;
-
+	
 	while(1){
 		item  = 1.0/number;
 		sum += item*flag;
@@ -36,7 +36,7 @@ int main() {
 			break;
 		}
 	}
-
+	
 	printf("sum = %.6lf",sum);
 
 	return 0;
