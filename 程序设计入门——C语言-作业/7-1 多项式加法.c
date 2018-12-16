@@ -42,6 +42,8 @@
 #include<stdio.h>
 #define MAX 101
 #define return return
+//没有考虑负数
+//
 int main() {
 	int s[MAX] = {0};
 	int n,m;
@@ -57,19 +59,62 @@ int main() {
 		scanf("%d %d",&n,&m);
 	}
 	s[0]+=m;
-	for(int i=MAX-1; i>=0; i--) {
-		if(s[i]!=0) {
-			if(i!=0) {
-				if(i==1) {
-					printf("%dx+",s[i]);
-				} else {
-					printf("%dx%d+",s[i],i);
-				}
+
+	int first = 1;
+	for(int i=MAX-1; i>=2; i--) {
+
+		if(first) {
+			if(s[i]==1) {
+				printf("x%d",i);
+			} else if(s[i]==-1) {
+				printf("-x%d",i);
 			} else {
-				printf("%d",s[i]);
+				printf("%dx%d",s[i],i);
+			}
+			first = 0;
+		} else {
+
+			if(s[i]==1) {
+				printf("+x%d",i);
+			} else if(s[i]==-1) {
+				printf("-x%d",i);
+			} else if(s[i]>0) {
+				printf("+%dx%d",s[i],i);
+			} else if(s[i]<0) {
+				printf("%dx%d",s[i],i);
 			}
 		}
 	}
+
+	if(first==1) {
+		if(s[1]==1||s[1]==-1) {
+			printf("x");
+			first=0;
+		} else if(s[1]!=0) {
+			printf("%dx",s[1]);
+			first=0;
+		}
+	} else {
+		if(s[1]==1) { //当i=1时一定就是x的一次幂，而这也要单独拿出来
+			printf("+x");
+		} else if(s[1]==-1) {
+			printf("-x");
+		} else if(s[1]>0) {
+			printf("+%dx",s[1]);
+		} else if(s[1]<0) {
+			printf("%dx",s[1]);
+		}
+	}
+	if(first==1&&s[1]!=0) {
+		printf("%d",s[0]);
+	} else {
+		if(s[0]>0) {
+			printf("+%d",s[0]);
+		} else if(s[0]<0) {
+			printf("%d",s[0]);
+		}
+	}
+
 
 
 	return 0;

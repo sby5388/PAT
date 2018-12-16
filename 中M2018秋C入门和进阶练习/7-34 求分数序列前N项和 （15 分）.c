@@ -14,26 +14,25 @@
 32.66
 */
 #include<stdio.h>
-void start(int N);
 int main() {
 	int N;
 	scanf("%d",&N);
-	start(N);
-	return 0;
-}
-void start(int N) {
-	double sum = 0;
-	int fz = 2;
-	int fm = 1;
-	int temp;
-	while(N>0) {
-		sum+=1.0*fz/fm;
-		temp = fz;
-		fz = fm+fz;
-		fm =temp;
-		N--;
+	//fz,fm  使用int  类型时 错误，在N>=26538时  出现负数
+	//参考（copy:抄袭）：https://blog.csdn.net/bbyz1023/article/details/80392693
+	double sum =0.0;
+	double fz = 2;
+	double fm = 1;
+	int temp = 0;
+
+	while(temp<N) {
+		sum+=fz/fm;
+		double K = fz;
+		temp++;
+		fz+=fm;
+		fm=K;
 	}
-	printf("%.2lf",sum);
+	printf("%.2f",sum);
+	return 0;
 }
 
 

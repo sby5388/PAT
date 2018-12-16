@@ -1,5 +1,6 @@
 #include <stdio.h>
 /**
+习题5-5 使用函数统计指定数字的个数 （15 分）
 本题要求实现一个统计整数中指定数字的个数的简单函数。
 函数接口定义：
 int CountDigit( int number, int digit );

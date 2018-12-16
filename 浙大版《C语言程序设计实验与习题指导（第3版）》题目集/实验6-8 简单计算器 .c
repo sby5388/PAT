@@ -1,6 +1,8 @@
 /*
 实验6-8 简单计算器 （20 分）
-模拟简单运算器的工作。假设计算器只能进行加减乘除运算，运算数和结果都是整数，四种运算符的优先级相同，按从左到右的顺序计算。
+模拟简单运算器的工作。
+假设计算器只能进行加减乘除运算，运算数和结果都是整数，
+四种运算符的优先级相同，按从左到右的顺序计算。
 
 输入格式:
 输入在一行中给出一个四则运算算式，没有空格，且至少有一个操作数。遇等号”=”说明输入结束。
@@ -14,21 +16,47 @@
 10
 */
 #include<stdio.h>
-#include<string.h>
-#define END =
 int main() {
-	char *chars;
-	gets(chars);
-	printf("%s\n",chars);
-	int length = strlen(chars);
-	printf("length  = %d\n",length);
-
-	int n,m;
+	char c;
+	int result;
+	int temp;
+	int first = 1;
+	int error = 0;
 
 
-	for(int i=0; i<length; i++) {
-		char c=chars[i];
-		printf("%c\n",c);
+	do {
+		scanf("%d",&temp);
+		if(first) {
+			result = temp;
+			first = 0;
+		} else {
+			if(!error) {
+				if(c=='+') {
+					result +=temp;
+				} else if(c=='-') {
+					result-=temp;
+				} else if(c=='*') {
+					result *= temp;
+				} else if(c=='/') {
+					if(temp == 0) {
+						error = 1;
+					} else {
+						//printf("result = %d\n",result);
+					//	printf("temp   = %d\n",temp);
+						result = result / temp;
+					}
+				} else {
+					error = 1;
+				}
+			}
+		}
+	//	printf("%d\n",result);
+		scanf("%c",&c);
+	} while(c!='=');
+	if(error) {
+		printf("ERROR");
+	} else {
+		printf("%d",result);
 	}
 	return 0;
 }
