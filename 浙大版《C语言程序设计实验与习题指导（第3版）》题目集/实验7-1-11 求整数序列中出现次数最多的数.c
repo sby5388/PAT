@@ -1,5 +1,5 @@
 /*
-7-58 求整数序列中出现次数最多的数 （15 分）
+实验7-1-11 求整数序列中出现次数最多的数（15 分）
 本题要求统计一个整型序列中出现次数最多的整数及其出现次数。
 
 输入格式：
@@ -19,29 +19,24 @@ int main() {
 	int count[10] = {0};
 	int N;
 	scanf("%d",&N);
+	int number[N];
+	int count[N];
 	int temp;
 	for(int i=0; i<N; i++) {
 		scanf("%d",&temp);
-		while(temp>0) {
-			
-			int yu = temp%10;
-			count[yu]=count[yu]+1;
-			temp = temp/10;
-		}
-	}
-	int max = count[0];
-	for(int i=0; i<10; i++) {
-		if(count[i]>max) {
-			max= count[i];
-		}
-	}
-	printf("%d:",max);
-	for(int i=0;i<10;i++){
-		if(count[i]==max){
-			printf(" %d",i);
+		int exist = 0;
+		int position =-1;
+		for(int j=0; j<i; j++) {
+			if(number[j]==temp) {
+				position = j;
+				count[j] = count[j]+1;
+				exist = 1;
+				break;
+			}
 		}
 	}
 
 	return 0;
 }
+
 
