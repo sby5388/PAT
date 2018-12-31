@@ -25,38 +25,27 @@
 34
 */
 #include<stdio.h>
-int getPrice(double length,int time);
 int main() {
-	double length;
-	int time;
-	scanf("%lf %d",&length,&time);
-	int price  = getPrice(length,time);
-	printf("%d",price);
+	double f;
+	int wait;
+	scanf("%lf %d",&f,&wait);
+	double result = 10;
+	if(f>3.0) {
+		result +=(f-3)*2;
+	}
+	if(f>10.0) {
+		result +=(f-10)*1;
+	}
+
+	while(wait>=5) {
+		result+=2;
+		wait-=5;
+	}
+
+	printf("%.0lf",result);
+
 	return 0;
 }
 
-int getPrice(double length,int time) {
 
-	if(length<=0) {
-		return 0;
-	}
-	if(length<=3) {
-		return 10;
-	}
-	double sum = 0;
-	sum=10+(length-3)*2;
-	if(length>10) {
-		sum+=(length-10);
-	}
-
-	while(time>=5) {
-		sum+=2;
-		time=time-5;
-	}
-	int result = (int)sum;
-	if((sum-result)>=0.5) {
-		result++;
-	}
-	return result;
-}
 
