@@ -20,23 +20,24 @@
 #include<math.h>
 #define return return
 //各种运行超时
+//TODO 虽然说到绝对值，但是如果使用到绝对值函数就会出错
 int main() {
 	double N;
 	scanf("%lf",&N);
 	double sum = 1;
-	double temp =0.0;
+	double temp = 0.0;
 	double fz = 1;
-	long fm = 1;
-	int count = 1;
-
+	double fm = 1;
+	int count = 0;
+	double min = 0.00001;
 	while(1) {
-
+		count++;
 		fz *= N;
 		fm *= count;
 		temp = fz/fm;
 		sum += temp;
-		count++;
-		if(abs(temp)<0.00001) {
+
+		if(temp<min) {
 			break;
 		}
 	}

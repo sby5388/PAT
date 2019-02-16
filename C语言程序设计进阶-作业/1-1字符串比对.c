@@ -29,10 +29,41 @@ ababbba abbabbabbabbaacc
 */
 #include<stdio.h>
 #define return return
-int main(){
-	int N;
-	scanf("%d",&N);
+const int MAX = 10001;
+int main() {
+	char charA[MAX];
+	char sub[MAX];
+	
+	int length2 = 0;
+	while((sub[length2]=getchar())!='\n') {
+		length2++;
+	}
+	sub[length2] = '\0';
+	int length1 = 0;
+	while((charA[length1]=getchar())!='\n') {
+		length1++;
+	}
+	charA[length1]='\0';
+	int empty = 1;
 
+	for(int i=0;i<length1;i++){
+		int exist = 1;
+		for(int j=0;j<length2;j++){
+			if(charA[i+j]!=sub[j]){
+				exist = 0;
+				break;
+			}
+		}
+		if(exist){
+			empty = 0;
+			printf("%d ",i);
+		}
+		
+	}
+
+	if(empty) {
+		printf("-1");
+	}
 	return 0;
 }
 

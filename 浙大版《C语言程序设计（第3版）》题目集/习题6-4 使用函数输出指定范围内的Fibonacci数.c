@@ -43,7 +43,7 @@ int main() {
 /* 你的代码将被嵌在这里 */
 
 int fib( int n ) {
-	if(n==1||n==2) {
+	if(n==1||n==0) {
 		return 1;
 	} else {
 		return fib(n-1)+fib(n-2);

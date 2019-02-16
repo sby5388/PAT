@@ -5,6 +5,10 @@
 void Print_Factorial ( const int N );
 其中N是用户传入的参数，其值不超过1000。
 如果N是非负整数，则该函数必须在一行中打印出N!的值，否则打印“Invalid input”。
+输入样例：
+15
+输出样例：
+1307674368000
 */
 void Print_Factorial ( const int N );
 
@@ -17,6 +21,9 @@ int main() {
 }
 
 /* 你的代码将被嵌在这里 */
+/* TODO (by5388#1#): 当N>171时，阶乘的值 变成了1 */
+/* TODO (by5388#1#): 应当使用int[] 长数组来表示 */
+
 void Print_Factorial ( const int N ) {
 	if(N<0) {
 		printf("Invalid input");
@@ -35,10 +42,10 @@ void Print_Factorial ( const int N ) {
 	}
 
 	int n=N;
-	unsigned  long long result = 1;
+	double result = 1;
 	while(n>1) {
 		result *= n;
 		n--;
 	}
-	printf("%lld",result);
+	printf("%.0lf",result);
 }

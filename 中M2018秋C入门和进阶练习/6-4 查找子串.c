@@ -16,20 +16,22 @@ bored
 -1
 */
 #include <stdio.h>
-//#include<string.h>
 #define MAXS 30
 
 char *search(char *s, char *t);
 void ReadString( char s[] ); /* 裁判提供，细节不表 */
 
 int main() {
-	char s[MAXS], t[MAXS], *pos;
+//	char s[MAXS], t[MAXS], *pos;
 
-	ReadString(s);
-	ReadString(t);
+//	ReadString(s);
+//	ReadString(t);
+	char	s[] = "The C Programming Language";
+	char	t[] = "bored";
+
 	printf("%s\n",s);
 	printf("%s\n",t);
-	pos = search(s, t);
+	char *pos = search(s, t);
 	if ( pos != NULL ) {
 		printf("%d\n", pos - s);
 	} else {
@@ -42,14 +44,33 @@ int main() {
 
 /* 你的代码将被嵌在这里 */
 char *search(char *s, char *t) {
+	char *result = NULL;
 	//todo 20181015
-	int lengths = sizeof(s)/sizeof(s[0]);
-	int lengtht = sizeof(t)/sizeof(t[0]);
-	printf("%d %d\n",lengths,lengtht);
+	int ls = 0;
+	while(s[ls]!='\0') {
+		ls++;
+	}
 
+	int lt = 0;
+	while(t[lt]!='\0') {
+		lt++;
+	}
+//		printf("%d %d\n",ls,lt);
 
-
-	return NULL;
+	for(int i=0; i<ls; i++) {
+		int equals = 1;
+		for(int j=0; j<lt; j++) {
+			if(s[i+j]!=t[j]) {
+				equals = 0;
+				break;
+			}
+		}
+		if(equals==1) {
+			result =  &s[i];
+			break;
+		}
+	}
+	return result;
 
 }
 void ReadString(char *s) {

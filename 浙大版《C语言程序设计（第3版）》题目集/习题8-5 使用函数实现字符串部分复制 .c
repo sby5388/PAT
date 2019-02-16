@@ -22,37 +22,51 @@ void strmcpy( char *t, int m, char *s );
 void ReadString( char s[] ); /* 由裁判实现，略去不表 */
 
 int main() {
-	char t[MAXN] =  "happy new year";
-	char  s[MAXN];
-	int m;
+	{
+		//原始的数据
 
-	//scanf("%d\n", &m);
-	m = 7;
-	//ReadString(t);
+		char t[MAXN], s[MAXN];
+		int m;
+
+		scanf("%d\n", &m);
+		ReadString(t);
+		strmcpy( t, m, s );
+		printf("%s\n", s);
+
+		return 0;
+	}
+	{
+		//调试使用
+		char t[MAXN] =  "a";
+//	char t[MAXN] =  "abc";
+		char  s[MAXN];
+		int m;
+
+		//printf("sizeof(t) = %d\n",sizeof(t));
+
+		//scanf("%d\n", &m);
+		m = 1;
+		//ReadString(t);
 //	*t  = "happy new year";
-	strmcpy( t, m, s );
-	printf("%s\n", s);
+		strmcpy( t, m, s );
+		printf("%s\n", s);
 
-	return 0;
+		return 0;
+	}
 }
 
 /* 你的代码将被嵌在这里 */
 void strmcpy( char *t, int m, char *s ) {
 	int length = 0;
 	while(t[length]!='\0') {
-//		printf("%c",t[length]);
 		length++;
 	}
-//	printf("\n");
-//	printf("%d\n",length);
-	if(m<length) {
-//	printf("\n");
+	if(m<MAXN && m<=length) {
 		for(int i =0; i<length-m+1; i++) {
 			s[i] = t[m+i-1];
-			printf("%c",t[m+i-1]);
 		}
-		printf("%c",t[length-m+1]);
-		printf("\n");
 		s[length - m+1] = '\0';
+	} else {
+		s[0]='\0';
 	}
 }
